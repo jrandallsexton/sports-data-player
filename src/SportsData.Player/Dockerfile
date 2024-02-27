@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY [".", "./src/SportsData.Player/"]
 RUN dotnet nuget add source https://pkgs.dev.azure.com/jrandallsexton/sport-deets/_packaging/sports-data-nuget/nuget/v3/index.json
-RUN dotnet restore "./src/SportsData.Provider/SportsData.Player.csproj"
+RUN dotnet restore "./src/SportsData.Player/SportsData.Player.csproj"
 COPY . .
 WORKDIR "/src/src/SportsData.Player"
 RUN dotnet build "./SportsData.Player.csproj" -c Release -o /app/build
